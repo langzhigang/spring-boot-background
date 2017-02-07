@@ -1,9 +1,10 @@
 package cn.lzg.springboot.background.demo.service.impl;
 
 import cn.lzg.springboot.background.demo.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
+
+import javax.annotation.Resource;
 
 /**
  * @author lzg
@@ -12,7 +13,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserServiceImpl implements UserService {
 
-    @Autowired
+    @Resource(name = "primaryJdbcTemplate")
     private JdbcTemplate jdbcTemplate;
 
     @Override
