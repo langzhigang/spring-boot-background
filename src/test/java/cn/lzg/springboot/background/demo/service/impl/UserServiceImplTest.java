@@ -1,6 +1,8 @@
 package cn.lzg.springboot.background.demo.service.impl;
 
 import cn.lzg.springboot.background.Application;
+import cn.lzg.springboot.background.demo.dao.UserMapper;
+import cn.lzg.springboot.background.demo.domain.User;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -28,12 +30,13 @@ public class UserServiceImplTest {
 
     @Before
     public void setUp() {
-        jdbcTemplate1.update("DELETE  FROM  user ");
-        jdbcTemplate2.update("DELETE  FROM  user ");
+
     }
 
     @Test
     public void test() throws Exception {
+        jdbcTemplate1.update("DELETE  FROM  user ");
+        jdbcTemplate2.update("DELETE  FROM  user ");
 
         // 往第一个数据源中插入两条数据
         jdbcTemplate1.update("insert into user(id,name,age) values(?, ?, ?)", 1, "aaa", 20);
@@ -48,5 +51,15 @@ public class UserServiceImplTest {
         // 查一下第一个数据源中是否有两条数据，验证插入是否成功
         Assert.assertEquals("1", jdbcTemplate2.queryForObject("select count(1) from user", String.class));
 
+    }
+
+
+    @Autowired
+    protected UserMapper userMapper;
+
+    @Test
+    public void testMybatis(){
+        User user = userMapper.findById(1);
+        System.err.println(user.getCreateTime());
     }
 }
