@@ -17,6 +17,9 @@
     <properties>
         <!-- protostuff java序列化工具 版本 -->
         <protostuff.version>1.4.4</protostuff.version>
+
+        <!-- swagger 版本 -->
+        <swagger.version>2.6.1</swagger.version>
     </properties>
 
     <dependencies>
@@ -71,9 +74,22 @@
         <dependency>
             <groupId>io.protostuff</groupId>
             <artifactId>protostuff-runtime</artifactId>
-            <version>1.4.4</version>
+            <version>${protostuff.version}</version>
         </dependency>
         <!-- protostuff end -->
+
+        <!-- swagger start -->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>${swagger.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>${swagger.version}</version>
+        </dependency>
+        <!-- swagger end -->
 
     </dependencies>
 </project>

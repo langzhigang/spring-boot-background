@@ -1,9 +1,12 @@
 package cn.lzg.springboot.background.demo.controller;
 
 import cn.lzg.springboot.background.demo.domain.User;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
@@ -40,6 +43,7 @@ public class UserController {
         return users.get(id);
     }
 
+    @ApiOperation(value = "更新用户", notes = "根据传过来的user对象进行更新")
     @RequestMapping(value="/", method=RequestMethod.PUT)
     public String putUser(@RequestBody User user) {
         // 处理"/users/{id}"的PUT请求，用来更新User信息
