@@ -17,9 +17,16 @@ spring:
       username: root
       password: 123456
       driver-class-name: com.mysql.jdbc.Driver
+#redis
+  redis:
+    host-name: 120.25.205.4
+    port: 6379
+    password: 123456
 
 #mybatis
 mybatis:
   mapper-locations: classpath*:mybatis/mapper/*.xml
   configuration:
     map-underscore-to-camel-case: true
+
+
