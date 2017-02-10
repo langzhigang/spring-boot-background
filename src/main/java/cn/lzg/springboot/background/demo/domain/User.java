@@ -1,17 +1,26 @@
 package cn.lzg.springboot.background.demo.domain;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * @author lzg
  * @Date 2017/2/3.
  */
-public class User {
+public class User implements Serializable{
 
     private Long id;
     private String name;
     private Integer age;
     private Date createTime;
+
+    public User() {
+    }
+
+    public User(String name, Integer age) {
+        this.name = name;
+        this.age = age;
+    }
 
     public Long getId() {
         return id;
