@@ -1,5 +1,7 @@
 package cn.lzg.springboot.background.demo.domain;
 
+import io.swagger.annotations.ApiModelProperty;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -9,6 +11,7 @@ import java.util.Date;
  */
 public class User implements Serializable{
 
+    @ApiModelProperty("用户id,新增时候前端不用传")
     private Long id;
     private String name;
     private Integer age;
