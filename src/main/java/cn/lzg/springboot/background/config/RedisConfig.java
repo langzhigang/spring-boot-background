@@ -11,6 +11,7 @@ import org.springframework.data.redis.serializer.JdkSerializationRedisSerializer
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 
 /**
+ * 配置redis
  * @author lzg
  * @Date 2017/2/9.
  */

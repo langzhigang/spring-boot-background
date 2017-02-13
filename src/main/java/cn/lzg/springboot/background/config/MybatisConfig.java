@@ -12,6 +12,7 @@ import org.springframework.context.annotation.Primary;
 import javax.sql.DataSource;
 
 /**
+ * 配置mybatis
  * @author lzg
  * @Date 2017/2/7.
  */
