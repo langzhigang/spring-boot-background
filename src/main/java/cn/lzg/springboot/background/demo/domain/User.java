@@ -11,6 +11,7 @@ import java.util.Date;
  */
 public class User implements Serializable{
 
+    private static final long serialVersionUID = 5408184064356394319L;
     @ApiModelProperty("用户id,新增时候前端不用传")
     private Long id;
     private String name;
