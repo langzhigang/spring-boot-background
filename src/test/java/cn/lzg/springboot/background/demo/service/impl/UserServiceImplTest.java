@@ -14,6 +14,8 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
 
 /**
+ * 测试jdbcTemplate
+ *
  * @author lzg
  * @Date 2017/2/3.
  */
@@ -28,11 +30,20 @@ public class UserServiceImplTest {
     @Qualifier("secondaryJdbcTemplate")
     protected JdbcTemplate jdbcTemplate2;
 
+    @Autowired
+    protected UserMapper userMapper;
+
     @Before
     public void setUp() {
-
+//        jdbcTemplate1.update("DELETE  FROM  user ");
+//        jdbcTemplate2.update("DELETE  FROM  user ");
     }
 
+    /**
+     * 测试CRUD
+     *
+     * @throws Exception
+     */
     @Test
     public void test() throws Exception {
         jdbcTemplate1.update("DELETE  FROM  user ");
@@ -53,12 +64,11 @@ public class UserServiceImplTest {
 
     }
 
-
-    @Autowired
-    protected UserMapper userMapper;
-
+    /**
+     * 测试mybatis
+     */
     @Test
-    public void testMybatis(){
+    public void testMybatis() {
         User user = userMapper.findById(1);
         System.err.println(user.getCreateTime());
     }

@@ -17,7 +17,10 @@ import static org.hamcrest.Matchers.equalTo;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
 /**
+ * 测试UserController
+ *
  * @author lzg
  * @Date 2017/2/3.
  */
@@ -34,6 +37,11 @@ public class UserControllerTest {
         mvc = MockMvcBuilders.standaloneSetup(new UserController()).build();
     }
 
+    /**
+     * 测试UserController CRUD
+     *
+     * @throws Exception
+     */
     @Test
     public void testUserController() throws Exception {
         // 测试UserController
@@ -62,7 +70,7 @@ public class UserControllerTest {
         request = get("/users/");
         mvc.perform(request)
                 .andExpect(status().isOk())
-                .andExpect(content().string(equalTo("["+userJson+"]")));
+                .andExpect(content().string(equalTo("[" + userJson + "]")));
 
         // 4、put修改id为1的user
         user.setId(1L);

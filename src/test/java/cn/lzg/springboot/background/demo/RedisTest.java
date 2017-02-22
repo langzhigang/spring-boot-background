@@ -13,6 +13,8 @@ import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
 
 /**
+ * redis功能测试类
+ *
  * @author lzg
  * @Date 2017/2/9.
  */
@@ -22,18 +24,26 @@ public class RedisTest {
     @Autowired
     private StringRedisTemplate stringRedisTemplate;
 
+    @Autowired
+    private RedisTemplate<String, Object> redisTemplate;
+
+    /**
+     * 测试保存字符串
+     *
+     * @throws Exception
+     */
     @Test
     public void test() throws Exception {
-
-        // 保存字符串
         stringRedisTemplate.opsForValue().set("aaa", "111");
         Assert.assertEquals("111", stringRedisTemplate.opsForValue().get("aaa"));
 
     }
 
-    @Autowired
-    private RedisTemplate<String,Object> redisTemplate;
-
+    /**
+     * 测试保存对象
+     *
+     * @throws Exception
+     */
     @Test
     public void testObj() throws Exception {
         // 保存对象
