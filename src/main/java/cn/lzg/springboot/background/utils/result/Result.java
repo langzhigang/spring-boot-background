@@ -4,10 +4,11 @@ import java.io.Serializable;
 
 /**
  * controller层统一返回类型
+ *
  * @author lzg
  * @Date 2017/2/13.
  */
-public class Result<T> implements Serializable{
+public class Result<T> implements Serializable {
 
     private static final long serialVersionUID = 1779220683956492485L;
     private int code;
@@ -32,6 +33,7 @@ public class Result<T> implements Serializable{
     public int getCode() {
         return code;
     }
+
     public String getMessage() {
         return message;
     }

@@ -9,6 +9,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 /**
+ * 测试读取资源文件中的内容
+ *
  * @author lzg
  * @Date 2017/2/9.
  */
@@ -25,14 +27,20 @@ public class PropertiesTest {
     @Value("${environment}")
     private String environment;
 
+    /**
+     * 测试@Value注解读取
+     */
     @Test
-    public void test(){
-        Assert.assertEquals(name,"郎志刚");
-        Assert.assertEquals(desc,"name:郎志刚 age:25");
+    public void test() {
+        Assert.assertEquals(name, "郎志刚");
+        Assert.assertEquals(desc, "name:郎志刚 age:25");
     }
 
+    /**
+     * 测试默认环境变量是否生效
+     */
     @Test
-    public void testEnv(){
-        Assert.assertEquals(environment,"dev");
+    public void testEnv() {
+        Assert.assertEquals(environment, "dev");
     }
 }

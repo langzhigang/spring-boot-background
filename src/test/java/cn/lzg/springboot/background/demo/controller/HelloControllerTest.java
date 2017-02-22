@@ -13,7 +13,10 @@ import static org.mockito.BDDMockito.given;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
 /**
+ * 测试HelloController
+ *
  * @Author lzg
  * @Date 2017/1/24 23:09
  */
