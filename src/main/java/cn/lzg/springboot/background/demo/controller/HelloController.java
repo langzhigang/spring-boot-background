@@ -2,8 +2,10 @@ package cn.lzg.springboot.background.demo.controller;
 
 import cn.lzg.springboot.background.demo.service.HelloService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpMethod;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * @Author lzg
@@ -20,4 +22,11 @@ public class HelloController {
         return helloService.say("hello");
     }
 
+    @Value("${environment}")
+    private String environment;
+
+    @RequestMapping(value="/getEvn",method= RequestMethod.GET)
+    public String getEnvironment() {
+        return environment;
+    }
 }
