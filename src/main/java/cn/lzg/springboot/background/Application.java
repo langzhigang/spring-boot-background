@@ -2,6 +2,7 @@ package cn.lzg.springboot.background;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 /**
  * 主启动类
@@ -9,6 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @Date 2017/1/24 23:27
  */
 @SpringBootApplication
+@EnableScheduling //启用定时任务的配置
 public class Application {
     public static void main(String[] args) throws Exception {
         SpringApplication.run(Application.class, args);
