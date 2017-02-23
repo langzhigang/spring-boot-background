@@ -1,43 +1,26 @@
 <!-- Logback configuration. See http://logback.qos.ch/manual/index.html -->
 <configuration scan="true" scanPeriod="10 seconds">
-    <!--注释掉spring-boot默认实现，否则日志会打印两次-->
-    <!--<include resource="org/springframework/boot/logging/logback/base.xml" />-->
 
-    <property name="LOG_HOME" value="./logs" />
-
-    <appender name="consoleAppender" class="ch.qos.logback.core.ConsoleAppender">
-        <encoder>
-            <Pattern>.%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg %n</Pattern>
-        </encoder>
-    </appender>
-
-    <appender name="dailyRollingFileAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <!-- daily rollover -->
-            <FileNamePattern>${LOG_HOME}/spring-boot-background.%d{yyyy-MM-dd}.log</FileNamePattern>
-            <!-- keep 30 days' worth of history -->
-            <maxHistory>30</maxHistory>
-        </rollingPolicy>
-        <encoder>
-            <Pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{35} - %msg %n</Pattern>
-        </encoder>
-    </appender>
+    <include resource="org/springframework/boot/logging/logback/defaults.xml" />
+    <property name="LOG_FILE" value="./logs/spring-boot-background.log"/>
+    <include resource="org/springframework/boot/logging/logback/console-appender.xml" />
+    <include resource="org/springframework/boot/logging/logback/file-appender.xml" />
 
     <!--开发环境-->
     <springProfile name="dev">
         <!-- show sql-->
         <logger name="cn.lzg.springboot.background.demo.dao" level="DEBUG"/>
         <root level="INFO">
-            <appender-ref ref="consoleAppender" />
-            <appender-ref ref="dailyRollingFileAppender" />
+            <appender-ref ref="CONSOLE" />
+            <appender-ref ref="FILE" />
         </root>
     </springProfile>
 
     <!--测试环境-->
     <springProfile name="test">
         <root level="ERROR">
-            <appender-ref ref="consoleAppender" />
-            <appender-ref ref="dailyRollingFileAppender" />
+            <appender-ref ref="CONSOLE" />
+            <appender-ref ref="FILE" />
         </root>
     </springProfile>
 </configuration>
