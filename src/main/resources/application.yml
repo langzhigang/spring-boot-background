@@ -41,3 +41,7 @@ cn:
     name: 郎志刚
     age: 25
     desc: name:${cn.lzg.name} age:${cn.lzg.age}
+
+#日志
+logging:
+  config: classpath:logback-spring.xml

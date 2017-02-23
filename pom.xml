@@ -68,6 +68,11 @@
             <artifactId>spring-boot-starter-redis</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+        </dependency>
+
         <!-- protostuff start -->
         <dependency>
             <groupId>io.protostuff</groupId>
