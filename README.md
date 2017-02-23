@@ -7,6 +7,7 @@ localhost:8080/swagger-ui.html
 就能打开swagger api的页面了
 
 >test文件夹下面有很多单元测试，在maven打包或者单独测试的时候可以运行
+除了resources下面有配置文件外，cn.lzg.springboot.background.config包下面有很多基于注解的配置类
 
 
 ##目前项目有的功能

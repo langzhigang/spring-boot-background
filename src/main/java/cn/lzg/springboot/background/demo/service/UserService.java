@@ -1,5 +1,7 @@
 package cn.lzg.springboot.background.demo.service;
 
+import cn.lzg.springboot.background.demo.domain.User;
+
 /**
  * @author lzg
  * @Date 2017/2/3.
@@ -28,5 +30,10 @@ public interface UserService {
      * 删除所有用户
      */
     void deleteAllUsers();
+
+    /**
+     * 新增用户通过Mybatis
+     */
+    void createByMyBatis(User user);
 
 }

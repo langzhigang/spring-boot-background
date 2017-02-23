@@ -1,10 +1,15 @@
 package cn.lzg.springboot.background.demo.service.impl;
 
+import cn.lzg.springboot.background.demo.dao.UserMapper;
+import cn.lzg.springboot.background.demo.domain.User;
 import cn.lzg.springboot.background.demo.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
+import java.util.Date;
 
 /**
  * @author lzg
@@ -15,6 +20,9 @@ public class UserServiceImpl implements UserService {
 
     @Resource(name = "primaryJdbcTemplate")
     private JdbcTemplate jdbcTemplate;
+
+    @Autowired
+    private UserMapper userMapper;
 
     @Override
     public void create(String name, Integer age) {
@@ -35,4 +43,12 @@ public class UserServiceImpl implements UserService {
     public void deleteAllUsers() {
         jdbcTemplate.update("delete from user");
     }
+
+    @Override
+    @Transactional("primaryTransactionManager")
+    public void createByMyBatis(User user) {
+        user.setCreateTime(new Date());
+        userMapper.create(user);
+    }
+
 }

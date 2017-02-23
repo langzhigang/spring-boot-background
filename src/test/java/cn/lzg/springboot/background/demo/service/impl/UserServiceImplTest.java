@@ -3,6 +3,7 @@ package cn.lzg.springboot.background.demo.service.impl;
 import cn.lzg.springboot.background.Application;
 import cn.lzg.springboot.background.demo.dao.UserMapper;
 import cn.lzg.springboot.background.demo.domain.User;
+import cn.lzg.springboot.background.demo.service.UserService;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -32,6 +33,9 @@ public class UserServiceImplTest {
 
     @Autowired
     protected UserMapper userMapper;
+
+    @Autowired
+    private UserService userService;
 
     @Before
     public void setUp() {
@@ -71,5 +75,13 @@ public class UserServiceImplTest {
     public void testMybatis() {
         User user = userMapper.findById(1);
         System.err.println(user.getCreateTime());
+    }
+
+    /**
+     * 测试事物
+     */
+    @Test
+    public void testTransaction(){
+        userService.createByMyBatis(new User("事物",1));
     }
 }
