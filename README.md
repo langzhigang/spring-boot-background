@@ -19,3 +19,4 @@ localhost:8080/swagger-ui.html
 	7.整合swagger ui
 	8.配置了多环境支持，可在打包后用 java -jar xxx.jar --spring.profiles.active=test 来指定运行的环境
 	9.引入定时任务,demo见 cn.lzg.springboot.background.demo.task.ScheduledTasks
+	10.引入异步调用(@Async),demo见 cn.lzg.springboot.background.demo.async.TaskTest

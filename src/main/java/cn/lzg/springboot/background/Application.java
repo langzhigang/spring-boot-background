@@ -2,6 +2,7 @@ package cn.lzg.springboot.background;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
 /**
@@ -10,7 +11,8 @@ import org.springframework.scheduling.annotation.EnableScheduling;
  * @Date 2017/1/24 23:27
  */
 @SpringBootApplication
-@EnableScheduling //启用定时任务的配置
+@EnableScheduling //启用定时任务的配置(@Scheduled)
+@EnableAsync    //启动支持异步调用的配置
 public class Application {
     public static void main(String[] args) throws Exception {
         SpringApplication.run(Application.class, args);
