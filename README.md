@@ -2,12 +2,12 @@
 
 ##运行方式
 >运行Application类中的main方法
-在浏览器中访问
-localhost:8080/swagger-ui.html
-就能打开swagger api的页面了
+
+>在浏览器中访问 localhost:8080/swagger-ui.html(就能看到swagger api的页面了)
 
 >test文件夹下面有很多单元测试，在maven打包或者单独测试的时候可以运行
-除了resources下面有配置文件外，cn.lzg.springboot.background.config包下面有很多基于注解的配置类
+
+>除了resources下面有配置文件外，cn.lzg.springboot.background.config包下面有很多基于注解的配置类
 
 
 ##目前项目有的功能
@@ -24,3 +24,4 @@ localhost:8080/swagger-ui.html
 	11.定制化配置logback日志
 	12.添加aop日志拦截，拦截web层请求。详情见 cn.lzg.springboot.background.demo.aspect.WebLogAspect
 	13.添加spring 缓存配置(使用redis作为缓存)
+	14.添加spring boot监控 localhost:8080/heath 能看到监控信息（更多信息看文档）

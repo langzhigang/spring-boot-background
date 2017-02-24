@@ -21,7 +21,10 @@
         <!-- swagger 版本 -->
         <swagger.version>2.6.1</swagger.version>
 
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
+
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
     </properties>
@@ -128,6 +131,19 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <configuration>
                     <skip>true</skip>
+                </configuration>
+            </plugin>
+
+            <!-- 在Linux中按照系统服务启动
+                1.mvn install
+                2.创建软连接到/etc/init.d/目录下 sudo ln -s /var/yourapp/yourapp.jar /etc/init.d/yourapp
+                3./etc/init.d/yourapp start|stop|restart (service yourapp start|stop|restart)
+             -->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <executable>true</executable>
                 </configuration>
             </plugin>
         </plugins>
