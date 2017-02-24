@@ -1,14 +1,38 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="cn.lzg.springboot.background.demo.dao.UserMapper">
+    <update id="update">
+        update `user`
+        set
+        <trim suffix="" suffixOverrides=",">
+            <if test="name != null and name !=''">
+                `name` = #{name},
+            </if>
+            <if test="age != null">
+                age=#{age},
+            </if>
+        </trim>
+        where id = #{id}
+    </update>
 
     <select id="findById" resultType="cn.lzg.springboot.background.demo.domain.User">
         select * from `user` where id=#{id}
     </select>
 
-    <insert id="create">
+    <insert id="create" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO `user` (`id`, `name`, `age`, `create_time`)
         VALUES
           (#{id}, #{name}, #{age}, #{createTime})
     </insert>
+
+    <select id="getAllUsersByMyBatis" resultType="cn.lzg.springboot.background.demo.domain.User">
+        select * from `user`
+    </select>
+    <select id="getById" resultType="cn.lzg.springboot.background.demo.domain.User">
+        select * from `user` where id=#{id}
+    </select>
+
+    <delete id="deleteAllUsersByMyBatis">
+        delete from `user`
+    </delete>
 </mapper>

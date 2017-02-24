@@ -2,6 +2,8 @@ package cn.lzg.springboot.background.demo.service;
 
 import cn.lzg.springboot.background.demo.domain.User;
 
+import java.util.List;
+
 /**
  * @author lzg
  * @Date 2017/2/3.
@@ -34,6 +36,31 @@ public interface UserService {
     /**
      * 新增用户通过Mybatis
      */
-    void createByMyBatis(User user);
+    User createByMyBatis(User user);
 
+    /**
+     * 获得用户总量通过Mybatis
+     * @return
+     */
+    List<User> getAllUsersByMyBatis();
+
+    /**
+     * 删除所有用户通过Mybatis
+     * @return
+     */
+    void deleteAllUsersByMyBatis();
+
+    /**
+     * 通过id查询用户
+     * @param id
+     * @return
+     */
+    User getById(Long id);
+
+    /**
+     * 更新缓存
+     * @param u1
+     * @return
+     */
+    User update(User u1);
 }

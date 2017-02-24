@@ -22,6 +22,10 @@ spring:
   profiles:
     active: dev
 
+#缓存类型
+  cache:
+    type: redis
+
 #redis
   redis:
     host-name: 120.25.205.4

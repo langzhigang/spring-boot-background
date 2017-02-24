@@ -84,4 +84,19 @@ public class UserServiceImplTest {
     public void testTransaction(){
         userService.createByMyBatis(new User("事物",1));
     }
+
+    /**
+     * 测试缓存
+     */
+    @Test
+    public void testCache(){
+        User u = userService.createByMyBatis(new User("缓存create", 1));
+        Long id = u.getId();
+        User u1 = userService.getById(id);
+        u1.setName("修改了缓存");
+        userService.update(u1);
+        User u2 = userService.getById(id);
+
+        Assert.assertEquals(u1.getName(),u2.getName());
+    }
 }
