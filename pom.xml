@@ -6,7 +6,7 @@
 
     <groupId>cn.lzg.background</groupId>
     <artifactId>spring-boot-background</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -115,6 +115,7 @@
     </dependencies>
 
     <build>
+        <finalName>background</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

@@ -2,7 +2,16 @@
 <configuration scan="true" scanPeriod="10 seconds">
 
     <include resource="org/springframework/boot/logging/logback/defaults.xml" />
-    <property name="LOG_FILE" value="./logs/spring-boot-background.log"/>
+
+    <!--开发环境-->
+    <springProfile name="dev">
+        <property name="LOG_FILE" value="./logs/spring-boot-background.log"/>
+    </springProfile>
+    <!--测试环境-->
+    <springProfile name="test">
+        <property name="LOG_FILE" value="/data/logs/background/background.log"/>
+    </springProfile>
+
     <include resource="org/springframework/boot/logging/logback/console-appender.xml" />
     <include resource="org/springframework/boot/logging/logback/file-appender.xml" />
 
