@@ -4,6 +4,8 @@ import cn.lzg.springboot.background.Application;
 import cn.lzg.springboot.background.demo.dao.UserMapper;
 import cn.lzg.springboot.background.demo.domain.User;
 import cn.lzg.springboot.background.demo.service.UserService;
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -13,6 +15,8 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
+
+import java.util.List;
 
 /**
  * 测试jdbcTemplate
@@ -98,5 +102,18 @@ public class UserServiceImplTest {
         User u2 = userService.getById(id);
 
         Assert.assertEquals(u1.getName(),u2.getName());
+    }
+
+    /**
+     * 测试mybatis分页插件
+     */
+    @Test
+    public void testPagePluges(){
+        PageHelper.startPage(2, 3);
+        List<User> users = userMapper.getAllUsersByMyBatis();
+        System.out.println("Total: " + ((Page) users).getTotal());
+        for (User user : users) {
+            System.out.println("Country Name: " + user.getName());
+        }
     }
 }

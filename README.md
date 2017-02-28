@@ -25,3 +25,6 @@
 	12.添加aop日志拦截，拦截web层请求。详情见 cn.lzg.springboot.background.demo.aspect.WebLogAspect
 	13.添加spring 缓存配置(使用redis作为缓存)
 	14.添加spring boot监控 localhost:8080/heath 能看到监控信息（更多信息看文档）
+	15.添加分页插件
+	    ```单元测试见：cn.lzg.springboot.background.demo.service.impl.UserServiceImplTest.testPagePluges()
+	    ```插件详情：https://github.com/pagehelper/pagehelper-spring-boot
