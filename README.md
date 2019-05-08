@@ -29,3 +29,5 @@
 	15.添加分页插件
 	    ```单元测试见：cn.lzg.springboot.background.demo.service.impl.UserServiceImplTest.testPagePluges()
 	    ```插件详情：https://github.com/pagehelper/pagehelper-spring-boot
+		
+##后续跟新
